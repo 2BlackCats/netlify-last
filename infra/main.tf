@@ -64,7 +64,7 @@ function_name                  = "create_obituary_handler-30139604"
 role                           = aws_iam_role.lambda_exec.arn
 handler                        = "create_obituary.create_handler"
 runtime                        = "python3.8"
-timeout = "30s"
+timeout = 30
 }
 resource "aws_lambda_function_url" "url_create" {
   function_name      = aws_lambda_function.terraform_create_lambda_func.function_name
@@ -91,7 +91,7 @@ function_name                  = "get_obituary_handler-30139604"
 role                           = aws_iam_role.lambda_exec.arn
 handler                        = "get_obituaries.get_handler"
 runtime                        = "python3.8"
-timeout = "30s"
+timeout = 30
 }
 resource "aws_lambda_function_url" "url_get" {
   function_name      = aws_lambda_function.terraform_get_lambda_func.function_name
@@ -112,15 +112,15 @@ resource "aws_dynamodb_table" "obituary-table" {
   read_capacity= "30"
   write_capacity= "30"
   attribute {
-    name = "PollyURL"
-    type = "S"
-  }
-  attribute {
     name = "Name"
     type = "S"
   }
-  hash_key = "PollyURL"
-  range_key = "Name"
+  attribute {
+    name = "PollyURL"
+    type = "S"
+  }
+  hash_key = "Name"
+  range_key = "PollyURL"
 }
 
 output "dynamodb_name" {

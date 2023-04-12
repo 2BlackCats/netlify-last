@@ -5,6 +5,8 @@ import "./index.css";
 import Layout from "./Layout";
 import reportWebVitals from "./reportWebVitals";
 import 'bootstrap/dist/css/bootstrap.css';
+import 'reactjs-popup/dist/index.css';
+import "react-datepicker/dist/react-datepicker.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
